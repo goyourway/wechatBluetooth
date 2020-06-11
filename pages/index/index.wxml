@@ -1,0 +1,64 @@
+<!--index.wxml-->
+
+<!-- 与服务器连接使用，目前不使用  -->
+<button bindtap="gotowechatHttpsTest" style="width:100%">gotowechatHttpsTest</button>
+
+<view>
+  v1.6.2（已完成ascii接收和发送）
+
+  <view class="viewScanBle">
+  
+    <!-->scanBleDevices<-->
+    <button bindtap="scanBleDevices" size="mini" style="width:100px;margin-right:5px" type="primary">搜索蓝牙</button>
+    <button bindtap="closeBleConnection" size="mini" style="width:100px" type="primary">断开连接</button>
+    <view class="TableIsBleConnected">BLE是否连接：{{IsBleConnected}}</view>
+
+    <scroll-view>
+
+    <!-->蓝牙设备列表<-->
+      <view wx:if="{{!IsBleConnected}}" wx:for="{{BleDeviceList}}" wx:key="index" class="viewBleDeviceList" hover-class="viewBleDeviceList-hover"
+      data-device-id="{{item.deviceId}}"
+      data-name="{{item.name}}"
+      bindtap="createBleConnection">
+
+        <view>设备名称：{{item.name}}</view>
+       
+        <view style="font-size:12px">UUID: {{item.deviceId}}</view>
+<!-->
+        <view>信号强度: {{item.RSSI}}dBm ({{utils.max(0, item.RSSI + 100)}}%)</view>
+        <view>Service数量: {{utils.len(item.advertisServiceUUIDs)}}</view>
+<-->
+      </view>
+
+
+ <view wx:if="{{IsBleConnected}}" wx:for="{{BleCharacteristicList}}" wx:for-index="idx" wx:key="uuid">
+
+  <!-->点击显示下拉框<-->
+    <view class="top-selected" 
+    data-select-id="{{idx}}"
+    bindtap="bindshowMsg">
+    服务:{{BleServiceList[idx].uuid}}
+    
+    <view>▽</view>
+    </view>
+  
+  <!-- 下拉框：显示选中服务的所有特征值 -->
+    <view class="select_box" wx:if="{{select[idx]}}" >
+
+      <view hover-class="select_one-hover" wx:for="{{item}}" class="select_one"
+      bindtap="gotobleCharacteristicConnectedPage"
+      data-service-id="{{BleServiceList[idx].uuid}}"
+      data-characteristic="{{item}}"
+      
+      
+      >特征值:{{item.uuid}}</view>
+    </view>
+ </view>
+
+    </scroll-view>
+
+  </view>
+
+  
+
+</view>

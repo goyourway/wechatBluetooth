@@ -1,0 +1,6 @@
+view {
+  margin: 15px 15px 15px 15px;
+  padding-bottom:15px; 
+  border-bottom:solid 1px black;
+
+}

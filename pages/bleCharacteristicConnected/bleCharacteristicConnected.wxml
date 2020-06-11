@@ -1,0 +1,35 @@
+<view>
+
+
+ <view class="characteristic">
+  特征值:{{characteristic.uuid}}
+  <view class="properties">
+    <view wx:if="{{characteristic.properties.read}}">| 可读</view>
+    <view wx:if="{{characteristic.properties.write}}">| 可写</view>
+    <view wx:if="{{characteristic.properties.notify || characteristic.properties.indicate}}">| 通知已开启</view>
+  </view>
+ </view>
+ 
+<view class="writeble">
+  <button size="mini" bindtap="writeData">点击发送数据</button>
+  <textarea auto-focus="true" bindblur="changeWriteContent" placeholder="在此输入将发送的数据"></textarea>
+
+</view>
+
+
+<view class="notifylist" wx:if="{{characteristic.properties.notify || characteristic.properties.indicate}}">
+  <button size="mini" bindtap="readData">点击读取数据</button>
+   <text class="readContent">
+      错误码(0表示正常)：{{readContent}}
+  </text>
+  <view>通知列表</view>
+  <scroll-view>
+  <text class="notifylist-item">
+    {{notifyValueString}}
+  </text>
+ </scroll-view>
+</view>
+
+
+
+</view>

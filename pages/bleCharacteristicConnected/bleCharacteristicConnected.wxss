@@ -1,0 +1,34 @@
+
+
+.characteristic {
+  padding: 0 10rpx 10rpx 10rpx;
+  border-bottom: solid 1px #333; 
+  font-size: 32rpx;
+  color:#333
+}
+
+.properties{
+
+  float:right;
+  font-size: 25rpx;
+  color: #333
+}
+
+.properties view {
+  display: inline-block;
+  padding-right: 10rpx;
+}
+
+
+.writeble {
+  height:180px;
+  padding: 20rpx 0 10rpx 0;
+  border-bottom: solid 1px #333
+}
+
+.notifylist {
+ 
+  height:340px;
+  padding: 20rpx 0 10rpx 0;
+  
+}

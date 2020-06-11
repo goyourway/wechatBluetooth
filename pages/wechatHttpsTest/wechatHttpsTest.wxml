@@ -1,0 +1,16 @@
+<view>
+
+<form catchsubmit="testRequest">
+<label>e(for example:7)</label><input name="e"  placeholder="input e..."></input>
+<label>n(for example:187)</label><input name="n" placeholder="input n..."></input>
+<label>k(for example:55)</label><input name="k" placeholder="input k..."></input>
+
+<button form-type="submit">testRequest</button>
+</form>
+</view>
+<view style="text-align:center">
+c:{{c}}
+</view>
+<label>以上数据在小程序端录入，然后送到服务器计算，返回结果c----c的计算公式为k的e次方对n的模----这只是一个例子，</label>
+
+<button bindtap="testjson">testjson</button>
