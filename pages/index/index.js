@@ -2,7 +2,7 @@
 //获取应用实例
 const app = getApp()
 
-// !!!!（不必弄懂）
+// !!!!（不必弄懂）111
 function inArray(arr, key, val) {
   for (let i = 0; i < arr.length; i++) {
     if (arr[i][key] === val) {
